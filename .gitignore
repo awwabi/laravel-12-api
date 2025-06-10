@@ -1,0 +1,23 @@
+/vendor
+/node_modules
+
+# Laravel environment files
+.env
+.env.*.local
+
+# Laravel storage
+/public/storage
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+
+# IDE / Editor directories
+.idea
+.vscode
+
+# System files
+.DS_Store
+Thumbs.db
