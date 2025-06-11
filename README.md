@@ -68,3 +68,6 @@ This API is built to be robust, maintainable, and scalable, utilizing modern PHP
 ![Screenshot](image.png)
 - Email sent to new user:
 ![Screenshot](image-1.png)
+
+- **Note on Test Coverage:**  
+  Please be aware that while key functionalities are covered by tests, the suite does not account for every edge case. Full test coverage was not feasible due to the extensive effort required to cover all scenarios.
