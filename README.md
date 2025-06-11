@@ -21,25 +21,20 @@ The project is organized following the principles of Hexagonal Architecture, aim
     cd laravel-simple-api
     ```
 
-2. **Install Dependencies**
-    ```bash
-    composer install
-    ```
-
-3. **Environment Setup**
+2. **Environment Setup**
     Copy the `.env.example` file to create your own `.env` configuration:
     ```bash
     cp .env.example .env
     ```
-    Modify the necessary environment variables.
+    Modify the necessary `.env` variables.
 
-4. **Run Migrations**
+3. **Docker Compose**
     ```bash
-    php artisan migrate:fresh --seed
+    docker compose up -d
     ```
 
-5. **Run Tests**
-    Execute the test suite to ensure everything is working:
+4. **Run Tests**
+    Execute the test suite inside container to ensure everything is working:
     ```bash
     php artisan test
     ```
