@@ -17,15 +17,13 @@ The project is organized following the principles of Hexagonal Architecture, aim
 
 1. **Clone the Repository**
     ```bash
-    git clone <repository-url>
+    git clone git@github.com:awwabi/laravel-12-api.git
     cd laravel-simple-api
     ```
 
 2. **Install Dependencies**
     ```bash
     composer install
-    npm install
-    npm run dev
     ```
 
 3. **Environment Setup**
@@ -37,7 +35,7 @@ The project is organized following the principles of Hexagonal Architecture, aim
 
 4. **Run Migrations**
     ```bash
-    php artisan migrate
+    php artisan migrate:fresh --seed
     ```
 
 5. **Run Tests**
@@ -46,15 +44,32 @@ The project is organized following the principles of Hexagonal Architecture, aim
     php artisan test
     ```
 
-## How to Run this API Locally using Docker
-
-- [ ] Setup Docker configuration for local development
+## How to Get API Token
+    Since we are not providing endpoint for login, we can get api token by execute this command:
+    ```bash
+    php artisan login:user {role}
+    ```
+    Available role: `user`, `manager`, `admin`
 
 ## API Endpoints
 
-- **Register New User**: POST `/api/register`
-- **Retrieve User Info**: GET `/api/user/{id}`
+- **Register New User**: POST `/api/users`
+```bash
+curl --location 'localhost:8000/api/users' \
+--header 'Authorization: Bearer {token}'
+```
+- **Retrieve User Info**: GET `/api/users`
+```bash
+curl --location 'localhost:8000/api/users' \
+--header 'Authorization: Bearer {token}'
+```
 
 ## Conclusion
 
 This API is built to be robust, maintainable, and scalable, utilizing modern PHP practices and architectural patterns. 
+
+## Email Test Result
+- Email sent to admin:
+![Screenshot](image.png)
+- Email sent to new user:
+![Screenshot](image-1.png)

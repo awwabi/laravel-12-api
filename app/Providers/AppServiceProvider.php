@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Domain\User\Repository\UserRepository;
+use App\Application\Service\NotificationService;
+use App\Infrastructure\Persistence\SqliteUserRepository;
+use App\Infrastructure\Service\MailtrapMailerNotificationService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(UserRepository::class, SqliteUserRepository::class);
+        $this->app->bind(NotificationService::class, MailtrapMailerNotificationService::class);
     }
 
     /**
@@ -19,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+       //
     }
 }

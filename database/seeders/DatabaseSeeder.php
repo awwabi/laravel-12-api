@@ -2,22 +2,55 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Seed users
+        $users = [
+            [
+                'email' => 'admin@example.com',
+                'password' => Hash::make('password123'),
+                'name' => 'Admin User',
+                'role' => 'admin',
+                'active' => true,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'email' => 'manager@example.com',
+                'password' => Hash::make('password123'),
+                'name' => 'Manager User',
+                'role' => 'manager',
+                'active' => true,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'email' => 'user@example.com',
+                'password' => Hash::make('password123'),
+                'name' => 'Regular User',
+                'role' => 'user',
+                'active' => true,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ];
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        DB::table('users')->insert($users);
+
+        // Seed orders (random orders for each user)
+        foreach (DB::table('users')->get() as $user) {
+            DB::table('orders')->insert([
+                'user_id' => $user->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        }
     }
 }
