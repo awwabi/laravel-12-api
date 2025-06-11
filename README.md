@@ -40,11 +40,11 @@ The project is organized following the principles of Hexagonal Architecture, aim
     ```
 
 ## How to Get API Token
-    Since we are not providing endpoint for login, we can get api token by execute this command:
-    ```bash
-    php artisan login:user {role}
-    ```
-    Available role: `user`, `manager`, `admin`
+Since we are not providing endpoint for login, we can get api token by execute this command:
+```bash
+php artisan login:user {role}
+```
+Available role: `user`, `manager`, `admin`
 
 ## API Endpoints
 
